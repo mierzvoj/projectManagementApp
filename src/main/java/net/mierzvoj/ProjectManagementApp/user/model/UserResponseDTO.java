@@ -1,15 +1,18 @@
 package net.mierzvoj.ProjectManagementApp.user.model;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
-@NoArgsConstructor
+@Setter
+@Getter
 @AllArgsConstructor
-
-public class UserSummaryDTO {
+@NoArgsConstructor
+public class UserResponseDTO {
     private Long id;
     private String userName;
+    private String password;
     private String email;
 }

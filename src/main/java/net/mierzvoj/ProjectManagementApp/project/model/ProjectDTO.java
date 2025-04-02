@@ -3,11 +3,9 @@ package net.mierzvoj.ProjectManagementApp.project.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import net.mierzvoj.ProjectManagementApp.task.model.TaskSummaryDTO;
-import net.mierzvoj.ProjectManagementApp.user.model.UserSummaryDTO;
+import net.mierzvoj.ProjectManagementApp.user.model.UserRequestDTO;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -29,11 +27,13 @@ public class ProjectDTO {
     private LocalDateTime dueDate;
     private ProjectStatus status;
 
-    private UserSummaryDTO owner;
+    private UserRequestDTO owner;
 
-    private Set<UserSummaryDTO> members = new HashSet<>();
+    private Set<UserRequestDTO> members = new HashSet<>();
     private Set<TaskSummaryDTO> tasks = new HashSet<>();
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
+    public ProjectDTO(String name, Object o) {
+    }
 }

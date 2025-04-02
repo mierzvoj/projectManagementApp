@@ -3,7 +3,7 @@ package net.mierzvoj.ProjectManagementApp.task.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.mierzvoj.ProjectManagementApp.user.model.UserSummaryDTO;
+import net.mierzvoj.ProjectManagementApp.user.model.UserRequestDTO;
 
 import java.time.LocalDateTime;
 
@@ -15,5 +15,5 @@ public class TaskSummaryDTO {
     private String title;
     private TaskStatus status;
     private LocalDateTime dueDate;
-    private UserSummaryDTO assignee;
+    private UserRequestDTO assignee;
 }
