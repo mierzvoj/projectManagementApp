@@ -1,0 +1,1 @@
+This app is project management app for authorised users. The backend part involves: MySQL database (docker), Java Spring based application with Spring Web, Spring Security, JPA and Lombok. It is under development, current stage allows users to register, plan to implement JWT based security setup.
