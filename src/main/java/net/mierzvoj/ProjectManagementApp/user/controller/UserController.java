@@ -1,6 +1,7 @@
 package net.mierzvoj.ProjectManagementApp.user.controller;
 
 import lombok.RequiredArgsConstructor;
+import net.mierzvoj.ProjectManagementApp.user.model.User;
 import net.mierzvoj.ProjectManagementApp.user.model.UserRequestDTO;
 import net.mierzvoj.ProjectManagementApp.user.model.UserResponseDTO;
 import net.mierzvoj.ProjectManagementApp.user.service.impl.UserServiceImpl;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private final UserServiceImpl userService;
 
-    @PostMapping
+    @PostMapping("/register")
     public ResponseEntity<UserResponseDTO> saveUser(@RequestBody UserRequestDTO userRequestDTO){
         UserResponseDTO savedUser = userService.saveUser(userRequestDTO);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
@@ -25,4 +26,10 @@ public class UserController {
 //        UserResponseDTO userResponseDto = userService.getEmployeeById(employeeId);
 //        return new ResponseEntity<>(apiResponseDto, HttpStatus.OK);
 //    }
+
+    @PostMapping("/login")
+    public String login(@RequestBody User user){
+        System.out.println(user.toString());
+        return "Successfully logged in";
+    }
 }
