@@ -5,8 +5,10 @@ import net.mierzvoj.ProjectManagementApp.user.model.User;
 import net.mierzvoj.ProjectManagementApp.user.model.UserRequestDTO;
 import net.mierzvoj.ProjectManagementApp.user.model.UserResponseDTO;
 import net.mierzvoj.ProjectManagementApp.user.service.impl.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/users")
 public class UserController {
     private final UserServiceImpl userService;
+
 
     @PostMapping("/register")
     public ResponseEntity<UserResponseDTO> saveUser(@RequestBody UserRequestDTO userRequestDTO){
@@ -29,7 +32,6 @@ public class UserController {
 
     @PostMapping("/login")
     public String login(@RequestBody User user){
-        System.out.println(user.toString());
-        return "Successfully logged in";
+        return userService.verifyUser(user);
     }
 }
